@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<section class="vh-100" style="background-color: #0E283D;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+
+                <form method = 'post'>
+                    {% if error %}
+                        <div class = 'alert'>
+                            {{error.messageKey|trans(error.messageData, 'security')}}
+                        </div>
+                    {% endif %}
+
+                    <h3 class="mb-5">Iniciar Sesion</h3>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="inputEmail">Email</label>
+                        <input type="email" value="{{last_user}}" name="email" id="inputEmail" class="form-control form-control-lg" placeholder="Email" required/>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="inputPassword">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control form-control-lg" placeholder="Password" required/>
+                    </div>
+
+                    <input type="hidden" name="_csrf_token" value="{{csrf_token('authenticate')}}">
+
+                    <button 
+                        type="submit" 
+                        class="btn btn-primary btn-lg btn-block"
+                        style="background-color: #0E283D;">
+                        Ingresar
+                    </button>
+
+            <hr class="my-4">
+            <br/>
+            <div class="card-body" style="background-color: #0E283D; border-radius: 1rem;">
+                <a href="https://www.facebook.com" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="https://www.twitter.com" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                <a href="https://www.gmail.com" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+            </div>
+
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+{% endblock %}
