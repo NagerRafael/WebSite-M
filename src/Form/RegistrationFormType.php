@@ -25,7 +25,8 @@ class RegistrationFormType extends AbstractType
                     new IsTrue(['message' => 'Debes aceptar nuestros terminos y condiciones'])
                 ]
             ])
-            ->add('password', PasswordType::class,[
+            ->add('password', PasswordType::class,
+            [
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank(['message'=>'Ingrese una contraseña']),
@@ -34,8 +35,9 @@ class RegistrationFormType extends AbstractType
                         'minMessage'=>'Tu contraseña debe tener 6 caracteres',
                         'max' => 4096
                         ])
-                    ],
+                    ]
             ])
+            //->add('roles')
         ;
     }
 

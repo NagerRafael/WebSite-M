@@ -22,6 +22,10 @@ class SecurityController extends AbstractController
     }
 
     #[Route('/logout', name: 'app_logout')]
-    public function logout(): void
-    {}
+    public function logout(): Response
+    {
+        return $this->render('dashboard_admin/index.html.twig', [
+            'controller_name' => 'DashboardAdminController',
+        ]);
+    }
 }

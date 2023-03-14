@@ -11,6 +11,8 @@ class DashboardAdminController extends AbstractController
     #[Route('/dashboard/admin', name: 'app_dashboard_admin')]
     public function index(): Response
     {
+        $this -> denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         return $this->render('dashboard_admin/index.html.twig', [
             'controller_name' => 'DashboardAdminController',
         ]);

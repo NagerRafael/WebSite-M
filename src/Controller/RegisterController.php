@@ -22,6 +22,7 @@ class RegisterController extends AbstractController
         $form -> handleRequest($request);
         
         if($form -> isSubmitted() && $form -> isValid()){
+            
             $user -> setPassword(
                 //Encriptación del password
                 $uph -> hashPassword(
